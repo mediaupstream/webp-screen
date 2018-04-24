@@ -1,10 +1,9 @@
 const git = require('simple-git')
 const screenshot = require('screenshot-desktop')
 const sharp = require('sharp')
+
 const INTERVAL = 6 * 1000
 const MAX = 20
-const rand = (min, max) => Math.floor((Math.random() * max) + min)
-
 
 //
 // Restart every INTERVAL * MAX milliseconds
@@ -29,7 +28,6 @@ const grab = (nth = 0) => {
     return;
   }
   let start = Date.now()
-  console.time(nth)
   screenshot().then(img => {
     sharp(img)
       .resize(960)
@@ -38,12 +36,13 @@ const grab = (nth = 0) => {
       .toFile(`output/sc-${String(nth).padStart(2,0)}.webp`, () => {
         let elapsed = Date.now() - start
         setTimeout(() => {
-          console.timeEnd(nth)
           grab(nth+1)
         }, INTERVAL - elapsed)
       })
   })
 }
 
-
-grab(0)
+module.exports = {
+  restart,
+  grab,
+}
