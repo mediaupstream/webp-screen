@@ -1,19 +1,18 @@
-const git = require('simple-git/promise')
+const git = require('simple-git')
 const screenshot = require('screenshot-desktop')
 const sharp = require('sharp')
 const INTERVAL = 6 * 1000
 const MAX = 3
 const rand = (min, max) => Math.floor((Math.random() * max) + min)
 
-const restart = async () => {
-  try {
-    let status = await git().add(['-A'])
-      .commit('bot: 👽 Created new output images')
-      .push('origin', 'master')
-    console.log(status)
-  } catch (e) {
-    console.log(e)
-  }
+const restart = () => {
+  git()
+    .add('output/*')
+    .commit('bot: Adding images')
+    .push('origin', 'master', err => {
+      err && console.log(err)
+      grab(0)
+    })
 }
 
 const grab = (nth = 0) => {
@@ -41,6 +40,4 @@ const grab = (nth = 0) => {
   })
 }
 
-// grab(0)
-
-restart()
+grab(0)
