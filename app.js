@@ -7,11 +7,9 @@ const rand = (min, max) => Math.floor((Math.random() * max) + min)
 
 const restart = async () => {
   try {
-    let status = await git()
-      .add(['-A'])
+    let status = await git().add(['-A'])
       .commit('bot: 👽 Created new output images')
       .push('origin', 'master')
-      
     console.log(status)
   } catch (e) {
     console.log(e)
@@ -43,4 +41,6 @@ const grab = (nth = 0) => {
   })
 }
 
-grab(0)
+// grab(0)
+
+restart()
