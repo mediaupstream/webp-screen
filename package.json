@@ -1,7 +1,7 @@
 {
-  "name": "screenshot",
-  "version": "1.0.0",
-  "description": "",
+  "name": "webp-screen",
+  "version": "1.0.4",
+  "description": "webp screenshot toy",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

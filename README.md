@@ -1,5 +1,5 @@
-## WEBP SCREEN
+Sharing my screen.
 
-Sharing my screen as a set of webp images... 
+Takes a screenshot of my work computer every minute for 20 minutes and then uploads them all to this git repo. Why? I'm not sure...
 
 ![what-the](output/sc-00.webp)
