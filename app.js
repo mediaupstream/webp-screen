@@ -2,27 +2,32 @@ const git = require('simple-git')
 const screenshot = require('screenshot-desktop')
 const sharp = require('sharp')
 const INTERVAL = 6 * 1000
-const MAX = 3
+const MAX = 20
 const rand = (min, max) => Math.floor((Math.random() * max) + min)
 
+
+//
+// Restart every INTERVAL * MAX milliseconds
+// Add new files, commit, and upload to github
+//
 const restart = () => {
+  console.log('restarting...')
   git()
     .add('output/*')
     .commit('bot: Adding images')
-    .push('origin', 'master', err => {
-      err && console.log(err)
-      grab(0)
-    })
+    .push('origin', 'master', grab)
 }
 
+//
+// Grab a screenshot of my com pu tor
+// resize, blur, save as webp
+//
 const grab = (nth = 0) => {
-
-  // restart every INTERVAL
+  // restart
   if (nth >= MAX) {
     restart()
     return;
   }
-
   let start = Date.now()
   console.time(nth)
   screenshot().then(img => {
@@ -39,5 +44,6 @@ const grab = (nth = 0) => {
       })
   })
 }
+
 
 grab(0)
