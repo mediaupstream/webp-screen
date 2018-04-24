@@ -1,0 +1,16 @@
+{
+  "name": "screenshot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Derek Anderson <derek@mediaupstream.com> (http://mediaupstream.com/)",
+  "license": "ISC",
+  "dependencies": {
+    "screenshot-desktop": "^1.4.2",
+    "sharp": "^0.20.1",
+    "simple-git": "^1.92.0"
+  }
+}
