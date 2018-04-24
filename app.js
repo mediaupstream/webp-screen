@@ -2,7 +2,7 @@ const git = require('simple-git')
 const screenshot = require('screenshot-desktop')
 const sharp = require('sharp')
 
-const INTERVAL = 6 * 1000
+const INTERVAL = 6 * 10 * 1000
 const MAX = 20
 
 //
