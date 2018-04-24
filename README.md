@@ -1,5 +1,7 @@
 Sharing my screen.
 
-Takes a screenshot of my work computer every minute for 20 minutes and then uploads them all to this git repo. Why? I'm not sure...
+1. Take a screenshot every minute for 20 minutes
+2. Add the screenshots to github
+3. ???
 
 ![what-the](output/sc-00.webp)
